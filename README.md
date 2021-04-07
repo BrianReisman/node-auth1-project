@@ -1,4 +1,4 @@
-# Introduction to Authentication Module Project
+<!-- # Introduction to Authentication Module Project
 
 ## Introduction
 
@@ -23,7 +23,7 @@ There are two possible ways to submit your project. Your instructor should have 
 - [ ] Fork and clone the repository.
 - [ ] Implement your project in a `firstname-lastname` branch.
 - [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+- [ ] Open the assignment in Canvas and submit your pull request. -->
 
 ### Task 2: Minimum Viable Product
 
@@ -76,6 +76,10 @@ The database `auth.db3` includes a single `users` table:
 - Schedule time to review, refine, and assess your work.
 - Perform basic professional polishing including spell-checking and grammar-checking on your work.
 
-### Task 3: Stretch Goals
 
-- Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills.
+
+
+
+<!-- ### Task 3: Stretch Goals
+
+- Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills. -->
