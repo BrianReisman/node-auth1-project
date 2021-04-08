@@ -5,12 +5,24 @@ const {
   checkPasswordLength,
 } = require("./auth-middleware");
 
+const bcrypt = require("bcryptjs"); //package for hashing
+const Users = require("../users/users-model"); //helper functions
+
 router.post(
-  "/register",
-  checkUsernameFree,
-  checkUsernameExists,
-  checkPasswordLength,
-  (req, res) => {
+  //!{POST} password included
+  "/register", // checkUsernameFree, // checkUsernameExists, // checkPasswordLength,
+  async (req, res, next) => {
+    const user = req.body;
+    const hash = bcrypt.hashSync(user.password, 8);
+    user.password = hash;
+
+    try {
+      const saved = await Users.add(user)
+      res.status(201).json(saved)
+      
+    } catch (err) {
+      next(err)      
+    }
 
   }
 );
