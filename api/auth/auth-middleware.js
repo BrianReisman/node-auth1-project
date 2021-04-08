@@ -1,11 +1,5 @@
-/*
-  If the user does not have a session saved in the server
+const helpers = require('../users/users-model')
 
-  status 401
-  {
-    "message": "You shall not pass!"
-  }
-*/
 const restricted = (req, res, next) => {
   if (req.session.user) {
     next();
@@ -22,10 +16,15 @@ const restricted = (req, res, next) => {
     "message": "Username taken"
   }
 */
-const checkUsernameFree = (req, res, next) => {
-  console.log("checkUsernameFree");
-  next();
+const checkUsernameFree = async (req, res, next) => {
+  const check = await helpers.findBy({username: req.body.username})
+  if(check[0]){
+    res.status(400).json({message: 'username taken'})
+  } else {
+    next();
+  }
 };
+
 /*
   If the username in req.body does NOT exist in the database
 
