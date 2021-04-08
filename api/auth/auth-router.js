@@ -9,7 +9,6 @@ const bcrypt = require("bcryptjs"); //package for hashing
 const Users = require("../users/users-model"); //helper functions
 
 router.post(
-  //!{POST} password included
   "/register", // checkUsernameFree, // checkUsernameExists, // checkPasswordLength,
   async (req, res, next) => {
     const user = req.body;
@@ -17,15 +16,14 @@ router.post(
     user.password = hash;
 
     try {
-      const saved = await Users.add(user)
-      res.status(201).json(saved)
-      
+      const saved = await Users.add(user);
+      res.status(201).json(saved);
     } catch (err) {
-      next(err)      
+      next(err);
     }
-
   }
 );
+
 /**
   1 [POST] /api/auth/register { "username": "sue", "password": "1234" }
 
@@ -49,24 +47,20 @@ router.post(
   }
  */
 
-router.post("/login", (req, res) => {
-  console.log("login");
+router.post("/login", async (req, res, next) => {
+  const { username, password } = req.body;
+  try {
+    const user = await Users.findBy({ username }).first();
+    if (user && bcrypt.compareSync(password, user.password)) {
+      req.session.user = user;
+      res.status(200).json({ message: `Welcome ${user.username}!` });
+    } else {
+      res.status(401).json({ message: "invalid credentials" });
+    }
+  } catch (err) {
+    next(err);
+  }
 });
-/**
-  2 [POST] /api/auth/login { "username": "sue", "password": "1234" }
-
-  response:
-  status 200
-  {
-    "message": "Welcome sue!"
-  }
-
-  response on invalid credentials:
-  status 401
-  {
-    "message": "Invalid credentials"
-  }
- */
 
 router.get("/logout", (req, res) => {
   console.log("logout");
