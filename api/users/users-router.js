@@ -2,8 +2,10 @@
 
 const router = require("express").Router();
 const User = require("./users-model");
+const middleware = require('../auth/auth-middleware');
 
-router.get("/", async (req, res) => {
+router.get("/", middleware.restricted, async (req, res) => {
+  console.log('user-router', req.session)
   try {
     const users = await User.find();
     if (users) {

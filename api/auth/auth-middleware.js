@@ -7,9 +7,12 @@
   }
 */
 const restricted = (req, res, next) => {
-  console.log('restricted')
-  next();
-}
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(401).json({ message: "you shall not pass!" });
+  }
+};
 
 /*
   If the username in req.body already exists in the database
@@ -20,9 +23,9 @@ const restricted = (req, res, next) => {
   }
 */
 const checkUsernameFree = (req, res, next) => {
-  console.log('checkUsernameFree')
+  console.log("checkUsernameFree");
   next();
-}
+};
 /*
   If the username in req.body does NOT exist in the database
 
@@ -32,9 +35,9 @@ const checkUsernameFree = (req, res, next) => {
   }
 */
 const checkUsernameExists = (req, res, next) => {
-  console.log('checkUsernameExists')
+  console.log("checkUsernameExists");
   next();
-}
+};
 /*
   If password is missing from req.body, or if it's 3 chars or shorter
 
@@ -44,9 +47,9 @@ const checkUsernameExists = (req, res, next) => {
   }
 */
 const checkPasswordLength = (req, res, next) => {
-  console.log('checkPasswordLength')
+  console.log("checkPasswordLength");
   next();
-}
+};
 
 module.exports = {
   restricted,
