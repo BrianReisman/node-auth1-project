@@ -1,4 +1,4 @@
-# Introduction to Authentication Module Project
+<!-- # Introduction to Authentication Module Project
 
 ## Introduction
 
@@ -23,7 +23,7 @@ There are two possible ways to submit your project. Your instructor should have 
 - [ ] Fork and clone the repository.
 - [ ] Implement your project in a `firstname-lastname` branch.
 - [ ] Create a pull request of `firstname-lastname` against your `main` branch.
-- [ ] Open the assignment in Canvas and submit your pull request.
+- [ ] Open the assignment in Canvas and submit your pull request. -->
 
 ### Task 2: Minimum Viable Product
 
@@ -31,16 +31,16 @@ There are two possible ways to submit your project. Your instructor should have 
 
 Write the following user access functions inside `api/users/users-model.js`:
 
-- [ ] `find`
+<!-- - [ ] `find`
 - [ ] `findBy`
 - [ ] `findById`
-- [ ] `add`
+- [ ] `add` -->
 
 #### 2B - Middleware Functions
 
 Write the following auth middlewares inside `api/auth/auth-middleware.js`:
 
-- [ ] `restricted`
+<!-- - [ ] `restricted` -->
 - [ ] `checkUsernameFree`
 - [ ] `checkPasswordLength`
 - [ ] `checkUsernameExists`
@@ -51,10 +51,10 @@ Authentication will be tracked using sessions and cookies. See `api/server.js` f
 
 Write the following endpoints. The first one belongs inside `api/users/users-router.js` and the rest inside `api/auth/auth-router.js`:
 
-- [ ] `[GET] /api/users`
+<!-- - [ ] `[GET] /api/users`
 - [ ] `[POST] /api/auth/register`
 - [ ] `[POST] /api/auth/login`
-- [ ] `[GET] /api/auth/logout`
+- [ ] `[GET] /api/auth/logout` -->
 
 #### Users Schema
 
@@ -76,6 +76,10 @@ The database `auth.db3` includes a single `users` table:
 - Schedule time to review, refine, and assess your work.
 - Perform basic professional polishing including spell-checking and grammar-checking on your work.
 
-### Task 3: Stretch Goals
 
-- Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills.
+
+
+
+<!-- ### Task 3: Stretch Goals
+
+- Build a React application that implements components to register, login and view a list of users. Gotta keep sharpening your React skills. -->
